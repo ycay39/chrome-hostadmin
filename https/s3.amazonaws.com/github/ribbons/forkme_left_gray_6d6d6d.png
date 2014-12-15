@@ -1,0 +1,107 @@
+# 主机名
+ServerName localhost
+
+# 文档路径
+DocumentRoot "D:/usr/www/html"
+
+# 绝对限制许可
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+
+# 文档路径权限设置
+<Directory "D:/usr/www/html">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+
+# 用户路径
+<IfModule mod_userdir.c>
+    UserDir "D:/usr/local/apache/users/"
+</IfModule>
+
+# Control access to UserDir directories.  The following is an example
+# for a site where these directories are restricted to read-only.
+#
+#<Directory "D:/usr/local/apache/users">
+#    AllowOverride FileInfo AuthConfig Limit
+#    Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+#    <Limit GET POST OPTIONS PROPFIND>
+#        Order allow,deny
+#        Allow from all
+#    </Limit>
+#    <LimitExcept GET POST OPTIONS PROPFIND>
+#        Order deny,allow
+#        Deny from all
+#    </LimitExcept>
+#</Directory>
+
+# 索引文件
+<IfModule mod_dir.c>
+    DirectoryIndex index.html index.htm index.php
+</IfModule>
+
+# 访问控制文件名
+AccessFileName access.ht
+
+#
+# 防止访问控制文件被访问者察看
+<Files ~ "^\access.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+# 缓存协议
+#CacheNegotiatedDocs
+
+#
+# 使用规范名称
+UseCanonicalName On
+
+# 类型设置
+<IfModule mod_mime.c>
+    TypesConfig conf/mime.types
+</IfModule>
+
+#
+# 默认协议
+DefaultType text/plain
+
+# 魔术设置
+<IfModule mod_mime_magic.c>
+    MIMEMagicFile conf/magic
+</IfModule>
+
+# 主机名查找
+HostnameLookups Off
+
+# 错误记录
+ErrorLog logs/error.log
+
+# 记录等级，包括：debug, info, notice, warn, error, crit, alert, emerg.
+LogLevel error
+
+# 记录格式
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%h %l %u %t \"%r\" %>s %b" common
+LogFormat "%{Referer}i -> %U" referer
+LogFormat "%{User-agent}i" agent
+
+# 访问记录
+#CustomLog logs/access.log common
+
+# 服务器签名
+# 选择一个： On | Off | EMail
+ServerSignature On
+
+# CGI 脚本解释路径
+#!D:/usr/bin/perl
+
+# 以 CGI 模式运行 PHP 脚本
+ScriptAlias /php/ "D:/usr/local/php/"
+AddType application/x-httpd-php .php
+Action application/x-httpd-php "/php/php.exe"

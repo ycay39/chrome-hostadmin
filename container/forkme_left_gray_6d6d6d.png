@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Indefinite Infinity Loader - CodePen</title>
+
+  <style>body {
+  background: #222222;
+}
+
+.loader {
+  position: relative;
+  margin: 50px auto;
+  width: 86px;
+  height: 50px;
+}
+
+[class*=spoke] {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+}
+
+[class*=spoke--right] {
+  left: 36px;
+}
+
+[class*=indicator] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 4px;
+  background: white;
+  opacity: 0;
+  border-radius: 2px;
+}
+
+[class*=indicator--right] {
+  left: 0;
+}
+
+.spoke--left-0 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.spoke--left-1 {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.spoke--left-2 {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+.spoke--left-3 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.spoke--left-4 {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+
+.spoke--left-5 {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+
+.spoke--left-6 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.spoke--left-7 {
+  -webkit-transform: rotate(210deg);
+  -moz-transform: rotate(210deg);
+  -o-transform: rotate(210deg);
+  transform: rotate(210deg);
+}
+
+.spoke--left-8 {
+  -webkit-transform: rotate(240deg);
+  -moz-transform: rotate(240deg);
+  -o-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+
+.spoke--left-9 {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.spoke--left-10 {
+  -webkit-transform: rotate(300deg);
+  -moz-transform: rotate(300deg);
+  -o-transform: rotate(300deg);
+  transform: rotate(300deg);
+}
+
+.spoke--left-11 {
+  -webkit-transform: rotate(330deg);
+  -moz-transform: rotate(330deg);
+  -o-transform: rotate(330deg);
+  transform: rotate(330deg);
+}
+
+.spoke--right-0 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.spoke--right-1 {
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+
+.spoke--right-2 {
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+
+.spoke--right-3 {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.spoke--right-4 {
+  -webkit-transform: rotate(-120deg);
+  -moz-transform: rotate(-120deg);
+  -o-transform: rotate(-120deg);
+  transform: rotate(-120deg);
+}
+
+.spoke--right-5 {
+  -webkit-transform: rotate(-150deg);
+  -moz-transform: rotate(-150deg);
+  -o-transform: rotate(-150deg);
+  transform: rotate(-150deg);
+}
+
+.spoke--right-6 {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.spoke--right-7 {
+  -webkit-transform: rotate(-210deg);
+  -moz-transform: rotate(-210deg);
+  -o-transform: rotate(-210deg);
+  transform: rotate(-210deg);
+}
+
+.spoke--right-8 {
+  -webkit-transform: rotate(-240deg);
+  -moz-transform: rotate(-240deg);
+  -o-transform: rotate(-240deg);
+  transform: rotate(-240deg);
+}
+
+.spoke--right-9 {
+  -webkit-transform: rotate(-270deg);
+  -moz-transform: rotate(-270deg);
+  -o-transform: rotate(-270deg);
+  transform: rotate(-270deg);
+}
+
+.spoke--right-10 {
+  -webkit-transform: rotate(-300deg);
+  -moz-transform: rotate(-300deg);
+  -o-transform: rotate(-300deg);
+  transform: rotate(-300deg);
+}
+
+.spoke--right-11 {
+  -webkit-transform: rotate(-330deg);
+  -moz-transform: rotate(-330deg);
+  -o-transform: rotate(-330deg);
+  transform: rotate(-330deg);
+}
+
+[class*=indicator] {
+  -webkit-animation: highlight 1440ms infinite;
+  -moz-animation: highlight 1440ms infinite;
+  -o-animation: highlight 1440ms infinite;
+  animation: highlight 1440ms infinite;
+}
+
+.indicator--left-0 {
+  -webkit-animation-delay: 0ms;
+  -moz-animation-delay: 0ms;
+  -o-animation-delay: 0ms;
+  animation-delay: 0ms;
+}
+
+.indicator--left-1 {
+  -webkit-animation-delay: 60ms;
+  -moz-animation-delay: 60ms;
+  -o-animation-delay: 60ms;
+  animation-delay: 60ms;
+}
+
+.indicator--left-2 {
+  -webkit-animation-delay: 120ms;
+  -moz-animation-delay: 120ms;
+  -o-animation-delay: 120ms;
+  animation-delay: 120ms;
+}
+
+.indicator--left-3 {
+  -webkit-animation-delay: 180ms;
+  -moz-animation-delay: 180ms;
+  -o-animation-delay: 180ms;
+  animation-delay: 180ms;
+}
+
+.indicator--left-4 {
+  -webkit-animation-delay: 240ms;
+  -moz-animation-delay: 240ms;
+  -o-animation-delay: 240ms;
+  animation-delay: 240ms;
+}
+
+.indicator--left-5 {
+  -webkit-animation-delay: 300ms;
+  -moz-animation-delay: 300ms;
+  -o-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+
+.indicator--left-6 {
+  -webkit-animation-delay: 360ms;
+  -moz-animation-delay: 360ms;
+  -o-animation-delay: 360ms;
+  animation-delay: 360ms;
+}
+
+.indicator--left-7 {
+  -webkit-animation-delay: 420ms;
+  -moz-animation-delay: 420ms;
+  -o-animation-delay: 420ms;
+  animation-delay: 420ms;
+}
+
+.indicator--left-8 {
+  -webkit-animation-delay: 480ms;
+  -moz-animation-delay: 480ms;
+  -o-animation-delay: 480ms;
+  animation-delay: 480ms;
+}
+
+.indicator--left-9 {
+  -webkit-animation-delay: 540ms;
+  -moz-animation-delay: 540ms;
+  -o-animation-delay: 540ms;
+  animation-delay: 540ms;
+}
+
+.indicator--left-10 {
+  -webkit-animation-delay: 600ms;
+  -moz-animation-delay: 600ms;
+  -o-animation-delay: 600ms;
+  animation-delay: 600ms;
+}
+
+.indicator--left-11 {
+  -webkit-animation-delay: 660ms;
+  -moz-animation-delay: 660ms;
+  -o-animation-delay: 660ms;
+  animation-delay: 660ms;
+}
+
+.indicator--right-0 {
+  -webkit-animation-delay: 720ms;
+  -moz-animation-delay: 720ms;
+  -o-animation-delay: 720ms;
+  animation-delay: 720ms;
+}
+
+.indicator--right-1 {
+  -webkit-animation-delay: 780ms;
+  -moz-animation-delay: 780ms;
+  -o-animation-delay: 780ms;
+  animation-delay: 780ms;
+}
+
+.indicator--right-2 {
+  -webkit-animation-delay: 840ms;
+  -moz-animation-delay: 840ms;
+  -o-animation-delay: 840ms;
+  animation-delay: 840ms;
+}
+
+.indicator--right-3 {
+  -webkit-animation-delay: 900ms;
+  -moz-animation-delay: 900ms;
+  -o-animation-delay: 900ms;
+  animation-delay: 900ms;
+}
+
+.indicator--right-4 {
+  -webkit-animation-delay: 960ms;
+  -moz-animation-delay: 960ms;
+  -o-animation-delay: 960ms;
+  animation-delay: 960ms;
+}
+
+.indicator--right-5 {
+  -webkit-animation-delay: 1020ms;
+  -moz-animation-delay: 1020ms;
+  -o-animation-delay: 1020ms;
+  animation-delay: 1020ms;
+}
+
+.indicator--right-6 {
+  -webkit-animation-delay: 1080ms;
+  -moz-animation-delay: 1080ms;
+  -o-animation-delay: 1080ms;
+  animation-delay: 1080ms;
+}
+
+.indicator--right-7 {
+  -webkit-animation-delay: 1140ms;
+  -moz-animation-delay: 1140ms;
+  -o-animation-delay: 1140ms;
+  animation-delay: 1140ms;
+}
+
+.indicator--right-8 {
+  -webkit-animation-delay: 1200ms;
+  -moz-animation-delay: 1200ms;
+  -o-animation-delay: 1200ms;
+  animation-delay: 1200ms;
+}
+
+.indicator--right-9 {
+  -webkit-animation-delay: 1260ms;
+  -moz-animation-delay: 1260ms;
+  -o-animation-delay: 1260ms;
+  animation-delay: 1260ms;
+}
+
+.indicator--right-10 {
+  -webkit-animation-delay: 1320ms;
+  -moz-animation-delay: 1320ms;
+  -o-animation-delay: 1320ms;
+  animation-delay: 1320ms;
+}
+
+.indicator--right-11 {
+  -webkit-animation-delay: 1380ms;
+  -moz-animation-delay: 1380ms;
+  -o-animation-delay: 1380ms;
+  animation-delay: 1380ms;
+}
+
+@-webkit-keyframes highlight {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes highlight {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}</style>
+
+
+</head>
+
+<body>
+
+  <progress></progress>
+
+  <script>
+    // How many indicators on each side?
+var inum = 12;
+
+var loaders = document.getElementsByTagName("progress");
+for (var i=0; i<loaders.length; i++) {
+
+	// Create the new loader:
+
+	// Need a container:
+	var newloader = document.createElement("div");
+	newloader.className = "loader";
+
+	// Create indicators:
+	for (var j=0; j<2; j++) {
+
+		// Pick a side:
+		var side = ( j === 0 ? "left" : "right");
+
+		for (var k=0; k<inum; k++) {
+
+			// Create the spoke:
+			var spoke = document.createElement("div");
+			spoke.className = "spoke--" + side + "-" + k;
+
+			// Add this one to the loader:
+			newloader.appendChild(spoke);
+
+			// Create the indicator:
+			var indicator = document.createElement("div");
+			indicator.className = "indicator--" + side + "-" + k;
+
+			// And put it in the indicator container:
+			spoke.appendChild(indicator);			
+
+		}
+
+	}
+
+	// Get the parent node of the progress indicator:
+	var parent = loaders[i].parentNode;
+
+	// Replace the original progress indicator with the new one:
+	parent.replaceChild(newloader, loaders[i]);
+}
+    //@ sourceURL=pen.js
+  </script>
+
+
+</body>
+</html>
